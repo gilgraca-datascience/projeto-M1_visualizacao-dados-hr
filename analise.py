@@ -24,39 +24,38 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-df = pd.read_csv('query_1.csv')
+df_1 = pd.read_csv('query_1.csv')
 
 # Análise exploratória dos dados
 
-print(f"As 5 primeiras linhas do DataFrame:\n{df.head()}\n")
-print(f"As 5 últimas linhas do DataFrame:\n{df.tail()}\n")
+print(f"As 5 primeiras linhas do DataFrame:\n{df_1.head()}\n")
+print(f"As 5 últimas linhas do DataFrame:\n{df_1.tail()}\n")
 print("Informações sobre o DataFrame:")
-df.info()
-print(f"\nTamanho do DataFrame:\n{df.shape}\n")
-print(f"Colunas do DataFrame:\n{df.columns.to_list()}\n")
-print(f"Tipos de dados do DataFrame:\n{df.dtypes}\n")
-print(f"Estatísticas descritivas para colunas numéricas:\n{df.describe(include=['number'])}\n")
-print(f"Estatísticas descritivas para colunas de string e categoria:\n{df.describe(include=['str', 'category'])}\n")
+df_1.info()
+print(f"\nTamanho do DataFrame:\n{df_1.shape}\n")
+print(f"Colunas do DataFrame:\n{df_1.columns.to_list()}\n")
+print(f"Tipos de dados do DataFrame:\n{df_1.dtypes}\n")
+print(f"Estatísticas descritivas para colunas numéricas:\n{df_1.describe(include=['number'])}\n")
+print(f"Estatísticas descritivas para colunas de string e categoria:\n{df_1.describe(include=['str', 'category'])}\n")
 
 # analisando inconsistências dos dados
 
-print(f"Valores nulos por coluna:\n{df.isnull().sum()}\n")
-print(f"Valores duplicados:\n{df.duplicated().sum()}\n")
-print(f"Cargos únicos:\n{df['CARGO'].unique()}\n")
-print(f"Quantidade de cargos únicos:\n{df['CARGO'].nunique()}\n")
-print(f"Departamentos únicos:\n{df['DEPARTAMENTO'].unique()}\n")
-print(f"Quantidade de departamentos únicos:\n{df['DEPARTAMENTO'].nunique()}\n")
+print(f"Valores nulos por coluna:\n{df_1.isnull().sum()}\n")
+print(f"Valores duplicados:\n{df_1.duplicated().sum()}\n")
+print(f"Valores únicos por coluna:\n{df_1.nunique()}\n")
+print(f"Cargos únicos:\n{df_1['CARGO'].unique()}\n")
+print(f"Departamentos únicos:\n{df_1['DEPARTAMENTO'].unique()}\n")
+
 
 # transformação de dados
 
 # Usei IA para auxiliar na conversão da coluna SALARIO de int para float e formatação para exibir 2 casas decimais
-df["SALARIO"] = pd.to_numeric(df["SALARIO"], errors="raise").astype(float)
+df_1["SALARIO"] = pd.to_numeric(df_1["SALARIO"], errors="raise").astype(float)
 pd.set_option("display.float_format", "{:.2f}".format)
-print(df.head())
-print(df['SALARIO'].dtype)
+print(f"\nApós a mudança do tipo de salário para float:\n{df_1['SALARIO'].dtype}")
 
 # Usei IA para auxiliar na tradução dos cargos e departamentos para português
-df["DEPARTAMENTO"] = df["DEPARTAMENTO"].replace({
+df_1["DEPARTAMENTO"] = df_1["DEPARTAMENTO"].replace({
     "Executive": "Executivo",
     "Administration": "Administração",
     "Finance": "Finanças",
@@ -70,7 +69,7 @@ df["DEPARTAMENTO"] = df["DEPARTAMENTO"].replace({
     "Public Relations": "Relações Públicas",
 })
 
-df["CARGO"] = df["CARGO"].replace({
+df_1["CARGO"] = df_1["CARGO"].replace({
     "President": "Presidente",
     "Administration Vice President": "Vice-presidente Administrativo",
     "Administration Assistant": "Assistente Administrativo",
@@ -91,3 +90,8 @@ df["CARGO"] = df["CARGO"].replace({
     "Human Resources Representative": "Representante de Recursos Humanos",
     "Public Relations Representative": "Representante de Relações Públicas",
 })
+
+# Cálculos estatísticos.
+
+print(F"Medidas estatísticas básicas de Salário: \n{df_1['SALARIO'].agg(['mean', 'median', 'std', 'max', 'min', 'count'])}\n")
+
