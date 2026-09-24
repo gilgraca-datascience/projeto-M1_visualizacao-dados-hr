@@ -46,3 +46,48 @@ print(f"Cargos únicos:\n{df['CARGO'].unique()}\n")
 print(f"Quantidade de cargos únicos:\n{df['CARGO'].nunique()}\n")
 print(f"Departamentos únicos:\n{df['DEPARTAMENTO'].unique()}\n")
 print(f"Quantidade de departamentos únicos:\n{df['DEPARTAMENTO'].nunique()}\n")
+
+# transformação de dados
+
+# Usei IA para auxiliar na conversão da coluna SALARIO de int para float e formatação para exibir 2 casas decimais
+df["SALARIO"] = pd.to_numeric(df["SALARIO"], errors="raise").astype(float)
+pd.set_option("display.float_format", "{:.2f}".format)
+print(df.head())
+print(df['SALARIO'].dtype)
+
+# Usei IA para auxiliar na tradução dos cargos e departamentos para português
+df["DEPARTAMENTO"] = df["DEPARTAMENTO"].replace({
+    "Executive": "Executivo",
+    "Administration": "Administração",
+    "Finance": "Finanças",
+    "Accounting": "Contabilidade",
+    "Sales": "Vendas",
+    "Purchasing": "Compras",
+    "Shipping": "Expedição",
+    "IT": "Tecnologia da Informação",
+    "Marketing": "Marketing",
+    "Human Resources": "Recursos Humanos",
+    "Public Relations": "Relações Públicas",
+})
+
+df["CARGO"] = df["CARGO"].replace({
+    "President": "Presidente",
+    "Administration Vice President": "Vice-presidente Administrativo",
+    "Administration Assistant": "Assistente Administrativo",
+    "Finance Manager": "Gerente Financeiro",
+    "Accountant": "Contador",
+    "Accounting Manager": "Gerente de Contabilidade",
+    "Public Accountant": "Contador Público",
+    "Sales Manager": "Gerente de Vendas",
+    "Sales Representative": "Representante de Vendas",
+    "Purchasing Manager": "Gerente de Compras",
+    "Purchasing Clerk": "Auxiliar de Compras",
+    "Stock Manager": "Gerente de Estoque",
+    "Stock Clerk": "Auxiliar de Estoque",
+    "Shipping Clerk": "Auxiliar de Expedição",
+    "Programmer": "Programador",
+    "Marketing Manager": "Gerente de Marketing",
+    "Marketing Representative": "Representante de Marketing",
+    "Human Resources Representative": "Representante de Recursos Humanos",
+    "Public Relations Representative": "Representante de Relações Públicas",
+})
