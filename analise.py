@@ -230,9 +230,41 @@ print(f"Estatísticas descritivas para colunas de string e categoria:\n{df_2.des
 # Analisando inconsistências dos dados
 
 print(f"Valores nulos por coluna:\n{df_2.isnull().sum()}\n")
-print(f"Linha com valore nulo na coluna 'ESTADO':\n{df_2[df_2['ESTADO'].isna()]}\n")
+print(f"Linha com valor nulo na coluna 'ESTADO':\n{df_2[df_2['ESTADO'].isna()]}\n")
 print(f"Valores duplicados:\n{df_2.duplicated().sum()}\n")
 print(f"Valores únicos por coluna:\n{df_2.nunique()}\n")
 print(f"Cidades únicas:\n{df_2['CIDADE'].unique()}\n")
 print(f"Estados únicos:\n{df_2['ESTADO'].unique()}\n")
 print(f"Países únicos:\n{df_2['PAIS'].unique()}\n")
+
+# Transformação de dados query_2
+
+# Alterando o nome "United Kingdom of Great Britain and Northern Ireland" para United Kingdom, para facilitar a visualização do gráfico.
+df_2["PAIS"] = df_2["PAIS"].replace({
+    "United Kingdom of Great Britain and Northern Ireland": "United Kingdom"
+})
+
+# Alterando o nome "United States of America" para EUA, para facilitar a visualização do gráfico.
+df_2["PAIS"] = df_2["PAIS"].replace({
+    "United States of America": "EUA"
+})
+
+# Alterando o valor nulo do Estado de London para "Greater London", para nao ficar nulo.
+df_2["ESTADO"] = df_2["ESTADO"].replace({
+    np.nan: "Greater London"
+})
+
+# Usei IA para auxiliar na tradução dos departamentos para português
+df_2["DEPARTAMENTO"] = df_2["DEPARTAMENTO"].replace({
+    "Executive": "Executivo",
+    "Administration": "Administração",
+    "Finance": "Finanças",
+    "Accounting": "Contabilidade",
+    "Sales": "Vendas",
+    "Purchasing": "Compras",
+    "Shipping": "Expedição",
+    "IT": "Tecnologia da Informação",
+    "Marketing": "Marketing",
+    "Human Resources": "Recursos Humanos",
+    "Public Relations": "Relações Públicas",
+})
