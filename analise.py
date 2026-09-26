@@ -24,6 +24,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# Configura o Pandas para mostrar todas as colunas no terminal
+pd.set_option('display.max_columns', None)
+
 df_1 = pd.read_csv('query_1.csv')
 
 # Análise exploratória dos dados
@@ -38,7 +41,7 @@ print(f"Tipos de dados do DataFrame:\n{df_1.dtypes}\n")
 print(f"Estatísticas descritivas para colunas numéricas:\n{df_1.describe(include=['number'])}\n")
 print(f"Estatísticas descritivas para colunas de string e categoria:\n{df_1.describe(include=['str', 'category'])}\n")
 
-# analisando inconsistências dos dados
+# Analisando inconsistências dos dados
 
 print(f"Valores nulos por coluna:\n{df_1.isnull().sum()}\n")
 print(f"Valores duplicados:\n{df_1.duplicated().sum()}\n")
@@ -47,7 +50,7 @@ print(f"Cargos únicos:\n{df_1['CARGO'].unique()}\n")
 print(f"Departamentos únicos:\n{df_1['DEPARTAMENTO'].unique()}\n")
 
 
-# transformação de dados
+# Transformação de dados
 
 # Usei IA para auxiliar na conversão da coluna SALARIO de int para float e formatação para exibir 2 casas decimais
 df_1["SALARIO"] = pd.to_numeric(df_1["SALARIO"], errors="raise").astype(float)
@@ -208,3 +211,28 @@ plt.subplots_adjust(left=0.30, right=0.95)
 
 plt.show()
 
+# Análise exploratória de dados para a Query_2.
+
+print("\n\nAnálise exploratória de dados para a Query_2.\n")
+
+df_2 = pd.read_csv('query_2.csv')
+
+print(f"As 5 primeiras linhas do DataFrame:\n{df_2.head()}\n")
+print(f"As 5 últimas linhas do DataFrame:\n{df_2.tail()}\n")
+print("Informações sobre o DataFrame:")
+df_2.info()
+print(f"\nTamanho do DataFrame:\n{df_2.shape}\n")
+print(f"Colunas do DataFrame:\n{df_2.columns.to_list()}\n")
+print(f"Tipos de dados do DataFrame:\n{df_2.dtypes}\n")
+print(f"Estatísticas descritivas para colunas numéricas:\n{df_2.describe(include=['number'])}\n")
+print(f"Estatísticas descritivas para colunas de string e categoria:\n{df_2.describe(include=['str', 'category'])}\n")
+
+# Analisando inconsistências dos dados
+
+print(f"Valores nulos por coluna:\n{df_2.isnull().sum()}\n")
+print(f"Linha com valore nulo na coluna 'ESTADO':\n{df_2[df_2['ESTADO'].isna()]}\n")
+print(f"Valores duplicados:\n{df_2.duplicated().sum()}\n")
+print(f"Valores únicos por coluna:\n{df_2.nunique()}\n")
+print(f"Cidades únicas:\n{df_2['CIDADE'].unique()}\n")
+print(f"Estados únicos:\n{df_2['ESTADO'].unique()}\n")
+print(f"Países únicos:\n{df_2['PAIS'].unique()}\n")
