@@ -91,7 +91,120 @@ df_1["CARGO"] = df_1["CARGO"].replace({
     "Public Relations Representative": "Representante de Relações Públicas",
 })
 
-# Cálculos estatísticos.
+# Cálculos estatísticos e gráficos Query_1.
 
 print(F"Medidas estatísticas básicas de Salário: \n{df_1['SALARIO'].agg(['mean', 'median', 'std', 'max', 'min', 'count'])}\n")
+
+# Média salarial por cargo. Foi usado a IA para auxiliar nos ajustes do gráfico.
+media_cargo = (
+    df_1.groupby('CARGO')['SALARIO']
+      .mean()
+      .sort_values(ascending=False)
+)
+
+print(f"Média salarial por cargo:\n{media_cargo}\n")
+
+fig, ax = plt.subplots(figsize=(10, 6))
+
+media_cargo.plot(
+    kind='barh',
+    ax=ax
+)
+
+ax.set_title('Média salarial por cargo')
+ax.set_xlabel('Salário médio')
+ax.set_ylabel('Cargo')
+
+# Maior salário no topo
+ax.invert_yaxis()
+
+# Mais espaço para os nomes dos cargos
+plt.subplots_adjust(left=0.30, right=0.95)
+
+plt.show()
+
+# Média salarial por Departamento. 
+media_departamento = (
+    df_1.groupby('DEPARTAMENTO')['SALARIO']
+      .mean()
+      .sort_values(ascending=False)
+)
+
+print(f"Média salarial por departamento:\n{media_departamento}\n")
+
+fig, ax = plt.subplots(figsize=(10, 6))
+
+media_departamento.plot(
+    kind='barh',
+    ax=ax
+)
+
+ax.set_title('Média salarial por departamento')
+ax.set_xlabel('Salário médio')
+ax.set_ylabel('Departamento')
+
+# Maior salário no topo
+ax.invert_yaxis()
+
+# Mais espaço para os nomes dos cargos
+plt.subplots_adjust(left=0.30, right=0.95)
+
+plt.show()
+
+# Soma salarial por Departamento. 
+soma_departamento = (
+    df_1.groupby('DEPARTAMENTO')['SALARIO']
+      .sum()
+      .sort_values(ascending=False)
+)
+
+print(f"Soma salarial por departamento:\n{soma_departamento}\n")
+
+fig, ax = plt.subplots(figsize=(10, 6))
+
+soma_departamento.plot(
+    kind='barh',
+    ax=ax
+)
+
+ax.set_title('Soma salarial por departamento')
+ax.set_xlabel('Soma de salários')
+ax.set_ylabel('Departamento')
+
+# Maior salário no topo
+ax.invert_yaxis()
+
+# Mais espaço para os nomes dos cargos
+plt.subplots_adjust(left=0.30, right=0.95)
+
+plt.show()
+
+
+# Quantidade de pagamentos por Departamento. 
+qtd_departamento = (
+    df_1.groupby('DEPARTAMENTO')['SALARIO']
+      .count()
+      .sort_values(ascending=False)
+)
+
+print(f"Quantidade de pagamentos por departamento:\n{qtd_departamento}\n")
+
+fig, ax = plt.subplots(figsize=(10, 6))
+
+qtd_departamento.plot(
+    kind='barh',
+    ax=ax
+)
+
+ax.set_title('Quantidade de pagamentos por departamento')
+ax.set_xlabel('Quantidade de pagamentos')
+ax.set_ylabel('Departamento')
+
+# Maior quantidade no topo
+ax.invert_yaxis()
+
+# Mais espaço para os nomes dos cargos
+plt.subplots_adjust(left=0.30, right=0.95)
+
+plt.show()
 
