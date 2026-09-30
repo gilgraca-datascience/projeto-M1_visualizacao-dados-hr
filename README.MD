@@ -390,7 +390,3 @@ análise da evolução salarial ao longo do tempo;
 inclusão de informações de tempo de empresa;
 análise mais detalhada das diferenças salariais entre cargos e departamentos;
 utilização de outras ferramentas de Business Intelligence para apresentação dos resultados.
-
-## 🔗 Repositório
-
-GitHub: https://github.com/gilgraca-datascience/projeto-M1_visualizacao-dados-hr
