@@ -72,7 +72,6 @@ A consulta retorna:
 
 O resultado foi exportado para `query_01.csv`.
 
-
 ### Query 2 — Funcionários por Região
 
 #### Objetivo
@@ -102,7 +101,6 @@ COUNTRIES
     ↓
 REGIONS
 ```
-
 
 #### Filtro utilizado
 `WHERE REGION_NAME IS NOT NULL`
@@ -150,15 +148,15 @@ Não foram identificados valores nulos ou registros duplicados nos dados utiliza
 | Medida | Valor |
 |---|---:|
 | Quantidade de registros | 106 |
-| Média salarial | R$ 6.456,75 |
-| Mediana | R$ 6.150,00 |
-| Mínimo | R$ 2.100,00 |
-| Máximo | R$ 24.000,00 |
-| Desvio padrão | R$ 3.927,80 |
+| Média salarial | $ 6.456,75 |
+| Mediana | $ 6.150,00 |
+| Mínimo | $ 2.100,00 |
+| Máximo | $ 24.000,00 |
+| Desvio padrão | $ 3.927,80 |
 
-A média salarial de R$ 6.456,75 ficou acima da mediana de R$ 6.150,00. Essa diferença indica que os salários mais elevados exercem influência sobre a média da distribuição.
+A média salarial de $ 6.456,75 ficou acima da mediana de $ 6.150,00. Essa diferença indica que os salários mais elevados exercem influência sobre a média da distribuição.
 
-Os salários apresentam uma amplitude significativa, variando de R$ 2.100,00 a R$ 24.000,00.
+Os salários apresentam uma amplitude significativa, variando de $ 2.100,00 a $ 24.000,00.
 
 ### 📈 Visualizações da Query 1
 
@@ -246,7 +244,7 @@ Seattle apresentou 18 registros.
 
 A análise também mostrou diferenças entre a quantidade de funcionários e a soma dos salários em cada localidade.
 
-Oxford, por exemplo, apresentou uma soma salarial de aproximadamente R$ 304.500,00, enquanto South San Francisco concentrou a maior quantidade de funcionários.
+Oxford, por exemplo, apresentou uma soma salarial de aproximadamente $ 304.500,00, enquanto South San Francisco concentrou a maior quantidade de funcionários.
 
 Esse resultado demonstra que a quantidade de funcionários de uma localidade não determina necessariamente que ela terá a maior soma salarial.
 
@@ -256,7 +254,7 @@ A análise das duas consultas permitiu identificar alguns pontos relevantes:
 
 1. Diferença entre média e mediana salarial
 
-A média salarial foi de R$ 6.456,75, enquanto a mediana foi de R$ 6.150,00.
+A média salarial foi de $ 6.456,75, enquanto a mediana foi de $ 6.150,00.
 
 A média superior à mediana indica influência dos salários mais elevados sobre o valor médio.
 
@@ -264,7 +262,7 @@ A média superior à mediana indica influência dos salários mais elevados sobr
 
 Os cargos apresentam diferenças expressivas de remuneração média.
 
-O cargo de Presidente apresentou média salarial de R$ 24.000,00, enquanto cargos auxiliares apresentaram valores significativamente menores.
+O cargo de Presidente apresentou média salarial de $ 24.000,00, enquanto cargos auxiliares apresentaram valores significativamente menores.
 
 3. Diferença salarial entre departamentos
 
@@ -276,7 +274,7 @@ O departamento Executivo apresentou a maior média, enquanto Expedição apresen
 
 A análise da soma dos salários mostrou que o departamento com maior massa salarial não necessariamente possui a maior média salarial.
 
-Vendas apresentou soma salarial de aproximadamente R$ 304.500,00, enquanto o departamento Executivo apresentou a maior média salarial.
+Vendas apresentou soma salarial de aproximadamente $ 304.500,00, enquanto o departamento Executivo apresentou a maior média salarial.
 
 5. Quantidade de funcionários e massa salarial também podem apresentar comportamentos diferentes
 
@@ -310,7 +308,6 @@ pandas
 numpy
 matplotlib
 seaborn
-
 
 ### Instalação
 Primeiro precisa criar uma pasta/diretório no VS Code, onde estarão os arquivos.
@@ -346,7 +343,6 @@ Opção 2: rodar o arquivo requirements.txt (copie o comando abaixo e cole no te
 
 OBS: o arquivo requirements.txt deve estar no diretório do projeto, para a instalação funcionar corretamente. 
 O arquivo está disponível no repositório do projeto (github).
-
 
 ### Execução
 
@@ -390,7 +386,3 @@ análise da evolução salarial ao longo do tempo;
 inclusão de informações de tempo de empresa;
 análise mais detalhada das diferenças salariais entre cargos e departamentos;
 utilização de outras ferramentas de Business Intelligence para apresentação dos resultados.
-
-## 🔗 Repositório
-
-GitHub: https://github.com/gilgraca-datascience/projeto-M1_visualizacao-dados-hr
