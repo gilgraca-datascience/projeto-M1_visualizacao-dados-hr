@@ -72,7 +72,6 @@ A consulta retorna:
 
 O resultado foi exportado para `query_01.csv`.
 
-
 ### Query 2 — Funcionários por Região
 
 #### Objetivo
@@ -102,7 +101,6 @@ COUNTRIES
     ↓
 REGIONS
 ```
-
 
 #### Filtro utilizado
 `WHERE REGION_NAME IS NOT NULL`
@@ -156,7 +154,7 @@ Não foram identificados valores nulos ou registros duplicados nos dados utiliza
 | Máximo | $ 24.000,00 |
 | Desvio padrão | $ 3.927,80 |
 
-A média salarial de $ 6.456,75 ficou acima da mediana de $ 6.150,00. Essa diferença indica que os salários mais elevados exercem influência sobre a média da distribuição.
+A média salarial de 6.456,75 ficou acima da mediana de 6.150,00. Essa diferença indica que os salários mais elevados exercem influência sobre a média da distribuição.
 
 Os salários apresentam uma amplitude significativa, variando de $ 2.100,00 a $ 24.000,00.
 
@@ -311,7 +309,6 @@ numpy
 matplotlib
 seaborn
 
-
 ### Instalação
 Primeiro precisa criar uma pasta/diretório no VS Code, onde estarão os arquivos.
 baixe do github os seguintes arquivos e coloque no diretório:
@@ -346,7 +343,6 @@ Opção 2: rodar o arquivo requirements.txt (copie o comando abaixo e cole no te
 
 OBS: o arquivo requirements.txt deve estar no diretório do projeto, para a instalação funcionar corretamente. 
 O arquivo está disponível no repositório do projeto (github).
-
 
 ### Execução
 
